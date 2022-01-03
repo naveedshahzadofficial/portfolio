@@ -14,11 +14,25 @@ class CategoryPostFactory(DjangoModelFactory):
         django_get_or_create = ['category', 'post']
 
 
+class TagPostFactory(DjangoModelFactory):
+    post = SubFactory('post.factories.PostFactory')
+    tag = SubFactory('tag.factories.TagFactory')
+
+    class Meta:
+        model = 'post.TagPost'
+        django_get_or_create = ['tag', 'post']
+
+
 class PostFactory(DjangoModelFactory):
     title = Faker('text', max_nb_chars=60)
     body = Faker('paragraph')
     categories = RelatedFactoryList(
         CategoryPostFactory,
+        factory_related_name='post',
+        size=lambda: random.randint(1, 6),
+    )
+    tags = RelatedFactoryList(
+        TagPostFactory,
         factory_related_name='post',
         size=lambda: random.randint(1, 6),
     )
