@@ -26,7 +26,7 @@ SECRET_KEY = 'eq#5umllj(_18sxh&4-w_y^b1_d&jjnvp8&ajd%81yub@cco*2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['159.65.210.189', '142.93.35.74', 'naveedshahzad.com','www.naveedshahzad.com']
 
 
 # Application definition
@@ -142,4 +142,6 @@ STATICFILES_DIRS = [
 
 INTERNAL_IPS = [
     "127.0.0.1",
+    '159.65.210.189', 
+    '142.93.35.74'
 ]
