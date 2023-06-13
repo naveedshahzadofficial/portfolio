@@ -34,5 +34,6 @@ jobs:
             cd /var/www/vhosts/naveedshahzad
             source env/bin/activate # Go to environment 
             python manage.py migrate  # Apply database migrations
-            logout
+            python manage.py collectstatic --noinput  # Collect static files
+            exit
             sudo systemctl restart gunicorn  # Restart Gunicorn (or any other WSGI server)
